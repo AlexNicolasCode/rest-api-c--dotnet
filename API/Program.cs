@@ -4,7 +4,7 @@ using API.Services;
 using API.UseCases;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-string? dbUrl = builder.Configuration.GetConnectionString("DefaultConnection");
+string? dbUrl = Environment.GetEnvironmentVariable("DB_URL");
 builder.Services.AddControllers();
 builder.Services.AddScoped<LoadProductsUseCase, LoadProductsService>();
 builder.Services.AddScoped<LoadProductByIdUseCase, LoadProductbyIdService>();
