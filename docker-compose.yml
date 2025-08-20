@@ -1,5 +1,18 @@
 version: "3.8"
 services:
+  api:
+    build: 
+      context: ./API
+      dockerfile: Dockerfile
+      args:
+        - DB_URL=Host=db;Port=5432;Database=postgres;Username=postgres;Password=postgres;
+        - ASPNETCORE_ENVIRONMENT=Production
+    environment:
+      - DB_URL=Host=db;Port=5432;Database=postgres;Username=postgres;Password=postgres;
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+    ports:
+      - "5000:5000"
   db:
     image: postgres:15-alpine
     restart: always
