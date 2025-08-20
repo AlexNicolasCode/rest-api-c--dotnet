@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using RestAPI.Dtos;
-using RestAPI.Entities;
-using RestAPI.UseCases;
+using API.Dtos;
+using API.Entities;
+using API.UseCases;
 
-namespace RestAPI.Controllers
+namespace API.Controllers
 {
     [ApiController]
     [Route("api/products")]

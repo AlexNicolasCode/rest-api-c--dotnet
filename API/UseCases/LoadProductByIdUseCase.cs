@@ -1,6 +1,6 @@
-using RestAPI.Entities;
+using API.Entities;
 
-namespace RestAPI.UseCases;
+namespace API.UseCases;
 public interface LoadProductByIdUseCase
 {
     Task<ProductEntity> Execute(Guid id);

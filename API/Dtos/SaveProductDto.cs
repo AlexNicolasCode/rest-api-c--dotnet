@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace RestAPI.Dtos;
+namespace API.Dtos;
 
 public class SaveProductDto
 {

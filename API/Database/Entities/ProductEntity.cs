@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RestAPI.Entities
+namespace API.Entities
 {
     [Table("products")]
     public class ProductEntity

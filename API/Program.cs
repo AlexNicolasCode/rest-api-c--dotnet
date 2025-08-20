@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using RestAPI.Database;
-using RestAPI.Services;
-using RestAPI.UseCases;
+using API.Database;
+using API.Services;
+using API.UseCases;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 string? dbUrl = builder.Configuration.GetConnectionString("DefaultConnection");

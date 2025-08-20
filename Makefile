@@ -1,5 +1,5 @@
 run:
-	dotnet watch run
+	dotnet run --project=./API
 
 run-migrations:
 	dotnet ef database update

@@ -1,9 +1,9 @@
-using RestAPI.Database;
-using RestAPI.Dtos;
-using RestAPI.Entities;
-using RestAPI.UseCases;
+using API.Database;
+using API.Dtos;
+using API.Entities;
+using API.UseCases;
 
-namespace RestAPI.Services
+namespace API.Services
 {
     public class UpdateProductbyIdService : UpdateProductByIdUseCase
     {

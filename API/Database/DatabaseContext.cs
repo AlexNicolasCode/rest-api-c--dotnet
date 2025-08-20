@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using RestAPI.Entities;
+using API.Entities;
 
-namespace RestAPI.Database
+namespace API.Database
 {
     public class AppDbContext : DbContext
     {

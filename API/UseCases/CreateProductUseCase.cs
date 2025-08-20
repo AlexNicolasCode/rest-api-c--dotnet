@@ -1,7 +1,7 @@
-using RestAPI.Dtos;
-using RestAPI.Entities;
+using API.Dtos;
+using API.Entities;
 
-namespace RestAPI.UseCases;
+namespace API.UseCases;
 public interface CreateProductUseCase
 {
     Task<ProductEntity> Execute(SaveProductDto dto);
