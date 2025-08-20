@@ -1,0 +1,59 @@
+# .NET 8 Application - Setup and Database Migration Guide
+
+## Prerequisites
+
+- [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed  
+- A supported database (e.g., SQL Server, PostgreSQL) accessible  
+- Entity Framework Core packages installed in the project  
+
+## Getting Started
+
+### 1. Run the Application
+
+To run the application locally, use the following command in your project directory:
+
+```bash
+dotnet run --project=./API
+```
+
+Or you can run by Makefile:
+
+```bash
+make run
+```
+
+
+By default, the application will start and listen on 5000 port.
+
+## 2. Create a New Migration
+
+When you make changes to your EF Core models, create a new migration with:
+
+```bash
+dotnet ef migrations add MigrationName --project=./API
+```
+
+
+Replace MigrationName with a meaningful name describing the change (e.g., AddUsersTable).
+
+## 3. Update the Database
+
+Apply the pending migrations to your database using:
+
+```bash
+dotnet ef database update --project "./API" --connection  "Host=$DATABASE_HOST;Port=$DATABASE_PORT;Database=$DATABASE_DATABASE;Username=$DATABASE_USERNAME;Password=$DATABASE_PASSWORD;"
+```
+
+This command will update your database schema to match your EF Core models.
+
+You can also run migrations using the provided shell script with a connection string built from environment variables:
+
+```bash
+./run_migrations.sh "Host=$DATABASE_HOST;Port=$DATABASE_PORT;Database=$DATABASE_DATABASE;Username=$DATABASE_USERNAME;Password=$DATABASE_PASSWORD;"
+```
+
+Make sure the script has execute permission:
+
+```bash
+chmod +x run_migrations.sh
+```
