@@ -1,23 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using RestAPI.Database;
+using RestAPI.Services;
+using RestAPI.UseCases;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 string? dbUrl = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddControllers();
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+builder.Services.AddScoped<LoadProductsUseCase, LoadProductsService>();
+builder.Services.AddScoped<LoadProductByIdUseCase, LoadProductbyIdService>();
+builder.Services.AddScoped<CreateProductUseCase, CreateProductService>();
+builder.Services.AddScoped<UpdateProductByIdUseCase, UpdateProductbyIdService>();
+builder.Services.AddScoped<DeleteProductByIdUseCase, DeleteProductByIdService>();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(dbUrl));
 WebApplication app = builder.Build();
 app.UseHttpsRedirection();
