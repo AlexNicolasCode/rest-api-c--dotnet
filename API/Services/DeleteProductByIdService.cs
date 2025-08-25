@@ -13,7 +13,7 @@ namespace API.Services
             _db = db;
         }
 
-        public async Task Execute(Guid id)
+        public async Task DeleteProductById(Guid id)
         {
             ProductEntity? product = await _db.Products.FindAsync(id);
             if (product == null)

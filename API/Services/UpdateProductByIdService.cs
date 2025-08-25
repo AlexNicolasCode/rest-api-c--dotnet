@@ -15,9 +15,9 @@ namespace API.Services
             _db = db;
             _loadProductByIdService = loadProductByIdService;
         }
-        public async Task Execute(Guid id, SaveProductDto dto)
+        public async Task UpdateProductById(Guid id, SaveProductDto dto)
         {
-            ProductEntity product = await _loadProductByIdService.Execute(id);
+            ProductEntity product = await _loadProductByIdService.LoadProductById(id);
             product.Name = dto.Name;
             product.Price = dto.Price;
             _db.Update(product);

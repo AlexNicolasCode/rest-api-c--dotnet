@@ -18,7 +18,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<ProductEntity>>> Execute()
         {
-            return await _loadProductsService.Execute();
+            return await _loadProductsService.LoadProducts();
         }
     }
 }

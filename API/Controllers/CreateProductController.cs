@@ -19,7 +19,7 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductEntity>> Execute(SaveProductDto dto)
         {
-            ProductEntity product = await _createProductService.Execute(dto);
+            ProductEntity product = await _createProductService.CreateProduct(dto);
             return StatusCode(201, product);
         }
     }

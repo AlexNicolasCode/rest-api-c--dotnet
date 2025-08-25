@@ -18,7 +18,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductEntity>> Execute(Guid id)
         {
-            ProductEntity product = await _loadProductByIdService.Execute(id);
+            ProductEntity product = await _loadProductByIdService.LoadProductById(id);
             if (product == null)
             {
                 return NotFound();

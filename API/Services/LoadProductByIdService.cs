@@ -13,7 +13,7 @@ namespace API.Services
             _db = db;
         }
 
-        public async Task<ProductEntity> Execute(Guid id)
+        public async Task<ProductEntity> LoadProductById(Guid id)
         {
             return await _db.Products.FindAsync(id);
         }

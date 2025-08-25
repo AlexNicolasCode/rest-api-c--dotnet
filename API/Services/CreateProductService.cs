@@ -16,7 +16,7 @@ namespace API.Services
             _loadProductByIdService = loadProductByIdService;
         }
 
-        public async Task<ProductEntity> Execute(SaveProductDto dto)
+        public async Task<ProductEntity> CreateProduct(SaveProductDto dto)
         {
             Guid id = Guid.NewGuid();
             ProductEntity product = new ProductEntity
@@ -27,7 +27,7 @@ namespace API.Services
             };
             _db.Products.Add(product);
             await _db.SaveChangesAsync();
-            return await _loadProductByIdService.Execute(id);
+            return await _loadProductByIdService.LoadProductById(id);
         }
     }
 }

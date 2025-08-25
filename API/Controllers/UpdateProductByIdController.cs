@@ -21,12 +21,12 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Execute(Guid id, SaveProductDto dto)
         {
-            ProductEntity product = await _loadProductByIdService.Execute(id);
+            ProductEntity product = await _loadProductByIdService.LoadProductById(id);
             if (product == null)
             {
                 return NotFound();
             }
-            await _updateProductByIdService.Execute(id, dto);
+            await _updateProductByIdService.UpdateProductById(id, dto);
             return NoContent();
         }
     }

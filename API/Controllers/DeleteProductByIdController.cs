@@ -20,12 +20,12 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Execute(Guid id)
         {
-            ProductEntity product = await _loadProductByIdService.Execute(id);
+            ProductEntity product = await _loadProductByIdService.LoadProductById(id);
             if (product == null)
             {
                 return NotFound();
             }
-            await _deleteProductByIdService.Execute(id);
+            await _deleteProductByIdService.DeleteProductById(id);
             return NoContent();
         }
     }

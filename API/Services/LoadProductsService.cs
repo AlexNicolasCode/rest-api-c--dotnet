@@ -14,7 +14,7 @@ namespace API.Services
             _db = db;
         }
 
-        public async Task<List<ProductEntity>> Execute()
+        public async Task<List<ProductEntity>> LoadProducts()
         {
             return await _db.Products.ToListAsync();
         }
